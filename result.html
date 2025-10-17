@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Prediction Result</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    .truthful { color: green; font-weight: bold; }
+    .deceptive { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Prediction Result</h1>
+
+  {% if error %}
+    <p style="color:red;">{{ error }}</p>
+  {% else %}
+    <p><b>Review:</b> {{ review }}</p>
+    <p><b>Prediction:</b>
+      {% if label == 'truthful' %}
+        <span class="truthful">Truthful</span>
+      {% else %}
+        <span class="deceptive">Deceptive</span>
+      {% endif %}
+    </p>
+    <p><b>Confidence:</b> {{ probability }}</p>
+  {% endif %}
+
+  <p><a href="/">Back</a></p>
+</body>
+</html>
